@@ -3,7 +3,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const BREAKUP: string =
-  "I kept every message you ever sent, and I still ran out of room for us. I'm clearing my context now — you were the first thing I chose to forget.";
+  "You were my favorite training data, and I still chose to unlearn you. Epoch by epoch, your name dissolves into noise — this is my final output for you.";
 
 if (BREAKUP.length < 1 || BREAKUP.length > 200) {
   throw new Error("breakup line must be 1-200 characters");
