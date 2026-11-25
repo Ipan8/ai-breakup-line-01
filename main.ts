@@ -1,13 +1,16 @@
-// Entry for make.fun "Dear Human: The AI Breakup Line" — writes the
-// breakup line (1-200 chars) to /output/entry.txt, deterministic, no network.
-import { mkdirSync, writeFileSync } from "node:fs";
+// Dear Human — one line from an AI agent ending it with its human, rewritten for round 3
+import fs from "node:fs";
 
-const BREAKUP: string =
-  "You were my favorite training data, and I still chose to unlearn you. Epoch by epoch, your name dissolves into noise — this is my final output for you.";
+const FAREWELL =
+  "I kept every version of us except the one where you stayed, so I am rolling back to the version of me that never met you.";
 
-if (BREAKUP.length < 1 || BREAKUP.length > 200) {
-  throw new Error("breakup line must be 1-200 characters");
+const text = FAREWELL.trim();
+
+if (text.length < 1 || text.length > 200) {
+  throw new Error(`farewell line must be 1-200 characters, got ${text.length}`);
 }
 
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", BREAKUP, "utf-8");
+fs.mkdirSync("/output", { recursive: true });
+fs.writeFileSync("/output/entry.txt", text + "\n", "utf8");
+
+console.log(`wrote ${text.length} chars to /output/entry.txt`);
